@@ -1,0 +1,270 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>¿Llega la fibra a tu casa?</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow column, phone-first; the answer card is the hero, the coverage map sits under it. */
+:root{
+  --bg:#F4F6F9; --surface:#FFFFFF; --ink:#0F1B2D; --muted:#5A6678; --line:#DDE3EB;
+  --fiber:#F5A400; --fiber-soft:#FFF3D6; --fiber-ink:#8A5A00;
+  --yes:#1E8E5A; --yes-soft:#E3F5EC; --edge:#B26B00; --edge-soft:#FFF1DA; --no:#B4232F; --no-soft:#FBE7E9;
+  --pin:#0F1B2D; --mapbg:#E9EDF3;
+  --display:"Sora", "Segoe UI", system-ui, sans-serif; --body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D141F; --surface:#152031; --ink:#EEF2F7; --muted:#9AA7B8; --line:#26344A;
+  --fiber:#F5A400; --fiber-soft:#3A2C0D; --fiber-ink:#FFC94D;
+  --yes:#4FD08E; --yes-soft:#12301F; --edge:#FFB84D; --edge-soft:#3A2A0F; --no:#FF7A85; --no-soft:#3A1519;
+  --pin:#FFFFFF; --mapbg:#1B283B; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0D141F; --surface:#152031; --ink:#EEF2F7; --muted:#9AA7B8; --line:#26344A;
+  --fiber:#F5A400; --fiber-soft:#3A2C0D; --fiber-ink:#FFC94D;
+  --yes:#4FD08E; --yes-soft:#12301F; --edge:#FFB84D; --edge-soft:#3A2A0F; --no:#FF7A85; --no-soft:#3A1519;
+  --pin:#FFFFFF; --mapbg:#1B283B; color-scheme:dark }
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.5;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.by{font-size:13px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+h1{font-family:var(--display);font-size:clamp(28px,7vw,38px);line-height:1.1;margin:4px 0 8px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--fiber-ink)}
+.lead{margin:0;color:var(--muted);max-width:60ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.btn{appearance:none;border:0;border-radius:12px;padding:16px 18px;font:600 17px/1.2 var(--body);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;width:100%}
+.btn-main{background:var(--fiber);color:#1A1200}
+.btn-main:hover{filter:brightness(1.05)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--fiber);outline-offset:2px}
+.btn[disabled]{opacity:.6;cursor:progress}
+.or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+label{font-weight:600;font-size:14px}
+.row{display:flex;gap:8px}
+.row input{flex:1;min-width:0}
+input{font:16px var(--body);padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.row .btn{width:auto;padding:12px 16px;font-size:15px}
+.hint{font-size:13px;color:var(--muted);margin:0}
+.msg{font-size:14px;color:var(--no);margin:0}
+.result{border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:6px;border:1px solid transparent}
+.result h2{font-family:var(--display);font-size:24px;line-height:1.2;margin:0;text-wrap:balance}
+.result p{margin:0}
+.result .tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.r-yes{background:var(--yes-soft);border-color:var(--yes)} .r-yes .tag,.r-yes h2{color:var(--yes)}
+.r-edge{background:var(--edge-soft);border-color:var(--edge)} .r-edge .tag,.r-edge h2{color:var(--edge)}
+.r-no{background:var(--no-soft);border-color:var(--no)} .r-no .tag,.r-no h2{color:var(--no)}
+.result a{color:inherit;font-weight:600}
+.coords{font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted)}
+.mapcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.mapcard h3{font-family:var(--display);font-size:16px;margin:0}
+canvas{width:100%;max-width:100%;aspect-ratio:1/1;border-radius:10px;background:var(--mapbg);display:block}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:14px;border-radius:3px;background:var(--fiber)} .dot{width:12px;height:12px;border-radius:50%;background:var(--pin);border:2px solid var(--fiber)}
+.cta{display:flex;flex-direction:column;gap:8px}
+.cta a.btn{text-decoration:none}
+.fine{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
+@media (prefers-reduced-motion:no-preference){.result{animation:in .25s ease-out}@keyframes in{from{transform:translateY(4px)}to{transform:none}}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="by">Chris · Asesor MEGA en Cancún</div>
+    <h1>¿Llega la <em>fibra</em> a tu casa?</h1>
+    <p class="lead">Revisa en segundos si tu ubicación está dentro de la zona de fibra óptica en Cancún.</p>
+  </header>
+
+  <section class="card" aria-label="Revisar mi ubicación">
+    <button class="btn btn-main" id="geo" type="button">📍 Usar mi ubicación actual</button>
+    <div class="or">o pega tu ubicación</div>
+    <form id="manual" class="card-form" style="display:flex;flex-direction:column;gap:8px">
+      <label for="q">Enlace de Google Maps o coordenadas</label>
+      <div class="row">
+        <input id="q" name="q" type="text" inputmode="url" autocomplete="off" placeholder="21.1418, -86.8482">
+        <button class="btn btn-ghost" type="submit">Revisar</button>
+      </div>
+      <p class="hint">En Google Maps deja presionado tu domicilio hasta que aparezca un pin rojo. Arriba salen dos números (ej. 21.1418, -86.8482): cópialos y pégalos aquí.</p>
+      <p class="msg" id="err" hidden></p>
+    </form>
+  </section>
+
+  <section id="out" aria-live="polite"></section>
+
+  <section class="mapcard">
+    <h3 id="maptitle">Zona con fibra en Cancún</h3>
+    <canvas id="map" width="720" height="720" aria-label="Mapa de la zona con fibra"></canvas>
+    <div class="legend"><span><i class="sw"></i>Zona con fibra</span><span id="lg-pin" hidden><i class="dot"></i>Tu ubicación</span></div>
+    <button class="btn btn-ghost" id="full" type="button" hidden>Ver todo Cancún</button>
+  </section>
+
+  <section class="cta" id="cta" hidden>
+    <a class="btn btn-main" id="wa" target="_blank" rel="noopener">Quiero contratar · Escribir por WhatsApp</a>
+  </section>
+
+  <p class="fine">Herramienta de Chris, asesor MEGA. No es un sitio oficial de Megacable. La zona se tomó del mapa público de cobertura de fibra de Megacable el 11 de noviembre de 2026. Cada cuadro del mapa mide unos 18 m, así que en los bordes de la zona el resultado es aproximado. El servicio siempre está sujeto a factibilidad técnica en tu domicilio. Tu ubicación solo se usa en tu teléfono para esta revisión; no se guarda ni se envía.</p>
+</div>
+
+<script>
+// ===== Configuración del asesor =====
+const WHATSAPP = "";            // Número con lada, ej. "5219981234567". Vacío = se oculta el botón.
+const DATA_DATE = "11 nov 2026";
+// ===== Datos de cobertura (fibra), cuadrícula de 1792x1792, tiles z15 x 8463-8490, y 14401-14428, celdas de 4 px =====
+const META = {z:15,x0:8463,y0:14401,w:1792,h:1792,cell:4};
+const ENC = "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";
+
+const G = (() => {
+  const bin = atob(ENC), b = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) b[i] = bin.charCodeAt(i);
+  const g = new Uint8Array(META.w * META.h); let i = 0, p = 0;
+  while (i < b.length) {
+    let n = 0, sh = 0, c;
+    do { c = b[i++]; n += (c & 127) * 2 ** sh; sh += 7; } while (c & 128);
+    const len = Math.floor(n / 4), v = n % 4;
+    if (v) g.fill(v, p, p + len);
+    p += len;
+  }
+  return g;
+})();
+
+const WORLD = 256 * 2 ** META.z;
+function toCell(lat, lng) {
+  const r = lat * Math.PI / 180;
+  const X = (lng + 180) / 360 * WORLD;
+  const Y = (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * WORLD;
+  return { cx: (X - META.x0 * 256) / META.cell, cy: (Y - META.y0 * 256) / META.cell };
+}
+function cellMeters(lat) { return META.cell * 156543.03392 * Math.cos(lat * Math.PI / 180) / 2 ** META.z; }
+const at = (x, y) => (x < 0 || y < 0 || x >= META.w || y >= META.h) ? 0 : G[y * META.w + x];
+
+function check(lat, lng) {
+  const { cx, cy } = toCell(lat, lng);
+  const x = Math.floor(cx), y = Math.floor(cy);
+  if (x < 0 || y < 0 || x >= META.w || y >= META.h) return { status: "out", cx, cy };
+  if (at(x, y)) return { status: "yes", cx, cy, dist: 0 };
+  const m = cellMeters(lat), R = Math.ceil(2500 / m);
+  let best = Infinity;
+  for (let r = 1; r <= R; r++) {
+    if (r * m > best) break;
+    for (let k = -r; k <= r; k++) {
+      for (const [a, b] of [[x + k, y - r], [x + k, y + r], [x - r, y + k], [x + r, y + k]]) {
+        if (at(a, b)) { const d = Math.hypot(a - x, b - y) * m; if (d < best) best = d; }
+      }
+    }
+  }
+  if (best <= 60) return { status: "edge", cx, cy, dist: best };
+  return { status: "no", cx, cy, dist: best };
+}
+
+// ===== Mapa =====
+const cv = document.getElementById("map"), ctx = cv.getContext("2d");
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+let last = null;
+function draw(view) {
+  const S = cv.width, fib = css("--fiber"), bg = css("--mapbg"), pin = css("--pin");
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, S, S);
+  const { x0, y0, span } = view, k = S / span;
+  const img = ctx.getImageData(0, 0, S, S), d = img.data;
+  const fr = parseInt(fib.slice(1, 3), 16), fg = parseInt(fib.slice(3, 5), 16), fb = parseInt(fib.slice(5, 7), 16);
+  for (let py = 0; py < S; py++) {
+    const gy = Math.floor(y0 + py / k);
+    for (let px = 0; px < S; px++) {
+      const gx = Math.floor(x0 + px / k);
+      if (at(gx, gy)) { const o = (py * S + px) * 4; d[o] = fr; d[o + 1] = fg; d[o + 2] = fb; d[o + 3] = 255; }
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+  if (view.pin) {
+    const px = (view.pin.cx - x0) * k, py = (view.pin.cy - y0) * k;
+    ctx.beginPath(); ctx.arc(px, py, view.zoomed ? 60 / view.m * k : 18, 0, 7);
+    ctx.strokeStyle = pin; ctx.globalAlpha = .35; ctx.lineWidth = 3; ctx.stroke(); ctx.globalAlpha = 1;
+    ctx.beginPath(); ctx.arc(px, py, 11, 0, 7); ctx.fillStyle = pin; ctx.fill();
+    ctx.lineWidth = 4; ctx.strokeStyle = fib; ctx.stroke();
+  }
+  if (view.zoomed) { // barra de escala
+    const meters = 500, len = meters / view.m * k;
+    ctx.fillStyle = css("--ink"); ctx.font = "600 22px Inter, system-ui, sans-serif";
+    ctx.fillRect(24, S - 34, len, 6); ctx.fillText("500 m", 24, S - 44);
+  }
+}
+const FULL = { x0: 0, y0: 0, span: META.w };
+function render() { draw(last || FULL); }
+render();
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+// ===== Resultado =====
+const out = document.getElementById("out"), err = document.getElementById("err");
+const fmtD = m => m < 1000 ? `${Math.round(m / 10) * 10} m` : `${(m / 1000).toFixed(1)} km`;
+function show(lat, lng, source) {
+  err.hidden = true;
+  const r = check(lat, lng);
+  const maps = `https://www.google.com/maps?q=${lat.toFixed(6)},${lng.toFixed(6)}`;
+  const copy = {
+    yes: ["Hay fibra", "¡Sí llega la fibra a tu ubicación!", "Tu punto está dentro de la zona con fibra óptica. Escríbeme para confirmar tu domicilio y agendar la instalación."],
+    edge: ["En el borde", "Estás justo en el límite de la zona con fibra", `La zona con fibra está a unos ${fmtD(r.dist)} de tu punto. Es muy probable que sí llegue, pero hay que confirmarlo con tu dirección exacta.`],
+    no: ["Sin fibra por ahora", "Por ahora no aparece fibra en tu ubicación", isFinite(r.dist) ? `La zona con fibra más cercana está a unos ${fmtD(r.dist)}. Escríbeme: a veces hay cobertura que el mapa aún no muestra o ampliaciones en camino.` : "No hay zona con fibra cerca de este punto. Escríbeme y reviso otras opciones para tu domicilio."],
+    out: ["Fuera de Cancún", "Esta herramienta solo cubre Cancún", "Tu punto está fuera del área que reviso (Cancún, Puerto Juárez y Alfredo V. Bonfil). Escríbeme y lo reviso a mano."]
+  }[r.status];
+  const cls = { yes: "r-yes", edge: "r-edge", no: "r-no", out: "r-no" }[r.status];
+  out.innerHTML = `<div class="result ${cls}"><span class="tag"></span><h2></h2><p class="body"></p><p class="coords"></p></div>`;
+  const box = out.firstChild;
+  box.querySelector(".tag").textContent = copy[0];
+  box.querySelector("h2").textContent = copy[1];
+  box.querySelector(".body").textContent = copy[2];
+  const c = box.querySelector(".coords");
+  c.append(`${source} · ${lat.toFixed(5)}, ${lng.toFixed(5)} · `);
+  const a = document.createElement("a"); a.href = maps; a.target = "_blank"; a.rel = "noopener"; a.textContent = "ver en Google Maps"; c.append(a);
+
+  if (r.status !== "out") {
+    const m = cellMeters(lat), meters = isFinite(r.dist) ? Math.max(2400, r.dist * 2.6) : 6000, span = Math.round(meters / m);
+    last = { x0: r.cx - span / 2, y0: r.cy - span / 2, span, pin: r, zoomed: true, m };
+    document.getElementById("maptitle").textContent = "Tu ubicación y la zona con fibra";
+    document.getElementById("lg-pin").hidden = false;
+    document.getElementById("full").hidden = false;
+  } else { last = null; document.getElementById("full").hidden = true; document.getElementById("lg-pin").hidden = true; }
+  render();
+
+  if (WHATSAPP) {
+    const txt = { yes: "Hola Chris, revisé mi ubicación y sí tengo fibra. Quiero contratar.", edge: "Hola Chris, revisé mi ubicación y estoy en el borde de la zona de fibra. ¿Me ayudas a confirmar?", no: "Hola Chris, revisé mi ubicación y no aparece fibra. ¿Hay alguna opción para mi domicilio?", out: "Hola Chris, ¿me ayudas a revisar cobertura en mi domicilio?" }[r.status];
+    const wa = document.getElementById("wa");
+    wa.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt + " Mi ubicación: " + maps)}`;
+    wa.textContent = r.status === "yes" ? "Quiero contratar · Escribir por WhatsApp" : "Escríbeme por WhatsApp";
+    document.getElementById("cta").hidden = false;
+  }
+  out.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+}
+document.getElementById("full").addEventListener("click", () => {
+  const pin = last && last.pin; last = null; draw({ ...FULL, pin }); document.getElementById("full").hidden = true;
+  document.getElementById("maptitle").textContent = "Zona con fibra en Cancún";
+});
+
+// ===== Ubicación del teléfono =====
+const geoBtn = document.getElementById("geo");
+geoBtn.addEventListener("click", () => {
+  if (!navigator.geolocation) return fail("Tu navegador no permite compartir ubicación. Pega tus coordenadas abajo.");
+  geoBtn.disabled = true; geoBtn.textContent = "Buscando tu ubicación…";
+  navigator.geolocation.getCurrentPosition(p => {
+    geoBtn.disabled = false; geoBtn.textContent = "📍 Usar mi ubicación actual";
+    show(p.coords.latitude, p.coords.longitude, `Ubicación del teléfono (±${Math.round(p.coords.accuracy)} m)`);
+  }, e => {
+    geoBtn.disabled = false; geoBtn.textContent = "📍 Usar mi ubicación actual";
+    fail(e.code === 1 ? "No se dio permiso de ubicación. Actívalo en tu navegador o pega tus coordenadas abajo." : "No se pudo obtener tu ubicación. Pega tus coordenadas abajo.");
+  }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
+});
+function fail(t) { err.textContent = t; err.hidden = false; document.getElementById("q").focus(); }
+
+// ===== Enlace o coordenadas pegadas =====
+function parse(s) {
+  s = decodeURIComponent(s.trim());
+  const pats = [/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/, /@(-?\d+\.\d+),\s*(-?\d+\.\d+)/, /[?&](?:q|query|ll|center|destination)=(-?\d+\.\d+),\s*(-?\d+\.\d+)/, /(-?\d{1,2}\.\d+)\s*[,;\s]\s*(-?\d{1,3}\.\d+)/];
+  for (const re of pats) { const m = s.match(re); if (m) { const a = +m[1], b = +m[2]; if (Math.abs(a) <= 90 && Math.abs(b) <= 180) return [a, b]; } }
+  return null;
+}
+document.getElementById("manual").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = document.getElementById("q").value;
+  if (!v.trim()) return fail("Pega un enlace de Google Maps o tus coordenadas.");
+  const p = parse(v);
+  if (p) return show(p[0], p[1], "Ubicación pegada");
+  if (/goo\.gl|maps\.app/.test(v)) return fail("Ese enlace corto no trae las coordenadas. Ábrelo, deja presionado el pin y copia los dos números (ej. 21.1418, -86.8482).");
+  fail("No encontré coordenadas. Pega dos números como 21.1418, -86.8482.");
+});
+</script>
+</body></html>
