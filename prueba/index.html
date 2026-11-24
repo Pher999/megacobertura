@@ -338,8 +338,8 @@
 <div class="step-container" id="step-2">
 <h2 class="font-section-title text-section-title mb-2 text-2xl">¿Llega la fibra a tu casa?</h2>
 <p class="font-body-sm text-body-sm text-ink-soft mb-6">Comparte tu ubicación o busca tu colonia. Solo la usamos para revisar la cobertura.</p>
-<button class="btn-primary w-full rounded-lg py-3 font-body-lg text-body-lg flex items-center justify-center gap-2" id="geo" type="button"><span class="material-symbols-outlined">my_location</span> Usar mi ubicación actual</button>
-<div class="cob-or">o busca tu colonia o calle</div>
+<button class="btn-primary w-full rounded-lg py-3 font-body-lg text-body-lg flex items-center justify-center gap-2" id="geo" type="button"><span class="material-symbols-outlined">my_location</span> Estoy en mi casa: usar mi ubicación</button>
+<div class="cob-or">¿No estás en casa? Busca tu colonia o calle</div>
 <form id="manual" autocomplete="off">
 <label class="block font-eyebrow text-eyebrow text-signal-deep mb-2" for="q">COLONIA, CALLE O ENLACE DE GOOGLE MAPS</label>
 <div class="cob-sbox">
@@ -564,7 +564,9 @@ const num = n => Math.round(n).toLocaleString("es-MX");
 const pesos = n => "$" + num(n);
 
 function evento(nombre, params){
-  if (typeof fbq === 'function') fbq('track', nombre, params || {});
+  params = Object.assign({asesor: ASESOR}, params || {});
+  const STD = ['Lead','Contact','InitiateCheckout','ViewContent','Search','SubmitApplication','CompleteRegistration','Schedule'];
+  if (typeof fbq === 'function') fbq(STD.indexOf(nombre) >= 0 ? 'track' : 'trackCustom', nombre, params);
   // Prueba: en vez de mandarlo a Meta, se muestra en el pie de página.
   try{
     const ol=document.getElementById('log-eventos'); if(!ol) return;
@@ -972,7 +974,8 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 <script>
-const GEO_HTML='<span class="material-symbols-outlined">my_location</span> Usar mi ubicación actual';
+const ASESOR='prueba';
+const GEO_HTML='<span class="material-symbols-outlined">my_location</span> Estoy en mi casa: usar mi ubicación';
 
 // ===== Configuración del asesor =====
 const WHATSAPP = "";            // Número con lada, ej. "5219981234567". Vacío = se oculta el botón.
@@ -1273,6 +1276,7 @@ show=function(lat,lng,source,recenter=true){
   m.append((calle?calle+' · ':'')+(col?col+' · ':'')+lat.toFixed(5)+', '+lng.toFixed(5)+' · ');
   const a=document.createElement('a'); a.href=estado.ubicacion; a.target='_blank'; a.rel='noopener'; a.textContent='ver en Google Maps'; m.append(a);
   box.append(h3,p,m);
+  if(!cfg[3]){const w=document.createElement('p');w.style.marginTop='10px';const wa=document.createElement('a');wa.href='https://wa.me/'+NUMERO_VENTAS+'?text='+encodeURIComponent('Hola, el verificador dice que no hay cobertura en mi casa, ¿me ayudas a revisarlo?\n\nUbicación: '+estado.ubicacion+'\nZona: '+estado.zona);wa.target='_blank';wa.rel='noopener';wa.textContent='¿Crees que es un error? Escríbeme y lo reviso con tu dirección';wa.onclick=()=>evento('RevisionCobertura',{zona:estado.zona});w.append(wa);box.append(w)}
   if(cfg[3]){const b=document.createElement('button'); b.type='button'; b.className='btn-primary w-full rounded-lg py-3 font-body-lg text-body-lg mt-4'; b.textContent=cfg[4]; b.onclick=()=>nextStep(3); box.append(b)}
   out.append(box);
   formSC.classList.toggle('hidden', cfg[3]);
@@ -1280,5 +1284,6 @@ show=function(lat,lng,source,recenter=true){
   if(recenter) out.scrollIntoView({behavior:'smooth',block:'nearest'});
 };
 document.getElementById('start-wizard-btn').addEventListener('click',()=>setTimeout(resize,50));
+{const _ns=nextStep;let vio=false;nextStep=function(n){_ns(n);if(n===2){setTimeout(resize,50);if(!vio){vio=true;evento('VerCobertura',{})}}}}
 </script>
 </body></html>
