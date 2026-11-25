@@ -251,6 +251,10 @@
         .cob-sbox{position:relative}
         .cob-ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#8B95AD;pointer-events:none}
         .cob-buscar{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:#2E5BFF;color:#F2F5FA;border:0;border-radius:8px;padding:8px 14px;font:600 14px Manrope,sans-serif}
+        html,body{overflow-x:hidden;overflow-x:clip}
+        .paq-switch{position:sticky;top:72px;z-index:30;display:flex;gap:6px;padding:6px;margin:0 0 16px;background:#141A33;border:1px solid #2A3561;border-radius:999px}
+        .paq-switch button{flex:1;padding:10px 8px;border-radius:999px;font:700 14px Manrope,sans-serif;color:#C7D0E6;background:transparent;border:0}
+        .paq-switch button.on{background:#2E5BFF;color:#F2F5FA}
         #q{font-size:16px}
         #sug{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:20;margin:0;padding:6px;list-style:none;background:#141A33;border:1px solid #2A3561;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.45);max-height:280px;overflow:auto}
         #sug li{padding:10px 12px;border-radius:8px;cursor:pointer;display:flex;flex-direction:column;gap:2px}
@@ -336,6 +340,7 @@
 </div>
 <!-- Step 2: Coverage (herramienta de cobertura real) -->
 <div class="step-container" id="step-2">
+<button class="flex items-center gap-1 text-ink-soft hover:text-primary mb-4 transition-colors font-body-sm" type="button" onclick="nextStep(1)"><span class="material-symbols-outlined text-sm">arrow_back</span> Atrás</button>
 <h2 class="font-section-title text-section-title mb-2 text-2xl">¿Llega la fibra a tu casa?</h2>
 <p class="font-body-sm text-body-sm text-ink-soft mb-6">Comparte tu ubicación o busca tu colonia. Solo la usamos para revisar la cobertura.</p>
 <button class="btn-primary w-full rounded-lg py-3 font-body-lg text-body-lg flex items-center justify-center gap-2" id="geo" type="button"><span class="material-symbols-outlined">my_location</span> Estoy en mi casa: usar mi ubicación</button>
@@ -365,7 +370,7 @@
 <div id="cta" hidden><a id="wa"></a></div>
 </div>
 <!-- Step 3: Current Situation -->
-<div class="step-container" id="step-3">
+<div class="step-container" id="step-3"><button class="flex items-center gap-1 text-ink-soft hover:text-primary mb-4 transition-colors font-body-sm" type="button" onclick="nextStep(2)"><span class="material-symbols-outlined text-sm">arrow_back</span> Atrás</button>
 <h2 class="font-section-title text-section-title mb-2 text-2xl">Situación Actual</h2>
 <p class="font-body-sm text-body-sm text-ink-soft mb-8" id="txt-paso3">Cuéntanos sobre tu servicio actual para calcular tus ahorros.</p>
 <div class="space-y-6 mb-8">
@@ -405,7 +410,7 @@
 <button class="btn-primary w-full rounded-lg py-3 font-body-lg text-body-lg" onclick="terminarPaso3()">Continuar</button>
 </div>
 <!-- Step 4: Budget -->
-<div class="step-container" id="step-4">
+<div class="step-container" id="step-4"><button class="flex items-center gap-1 text-ink-soft hover:text-primary mb-4 transition-colors font-body-sm" type="button" onclick="nextStep(3)"><span class="material-symbols-outlined text-sm">arrow_back</span> Atrás</button>
 <h2 class="font-section-title text-section-title mb-2 text-2xl">Presupuesto Ideal</h2>
 <p class="font-body-sm text-body-sm text-ink-soft mb-8">¿Cuánto te gustaría invertir mensualmente en tu conectividad?</p>
 <div class="flex flex-col gap-4 mb-8">
@@ -442,14 +447,14 @@
 </div>
 </section>
 <!-- Results Section -->
-<section class="w-full hidden" id="results-section">
+<section class="w-full hidden" id="results-section"><button class="flex items-center gap-1 text-ink-soft hover:text-primary mb-4 transition-colors font-body-sm" type="button" onclick="document.getElementById('results-section').classList.add('hidden');document.getElementById('wizard-section').classList.remove('hidden');nextStep(4);"><span class="material-symbols-outlined text-sm">arrow_back</span> Cambiar mis respuestas</button>
 <div class="text-center mb-8">
 <h2 class="font-section-title text-section-title mb-4">Tu Conexión Ideal</h2>
 <p class="font-subheading text-subheading text-secondary" id="res-subtitulo"></p>
 <p class="font-body-sm text-body-sm text-ink-soft max-w-2xl mx-auto mt-4 opacity-70" style="font-size:12px; line-height:1.5;">(Esta demostración se genera con los datos que tú mismo ingresaste; es una simulación ilustrativa. MEGA CABLE no hace ninguna afirmación sobre los precios, planes o condiciones de otros proveedores — la información de tu proveedor actual proviene únicamente de lo que tú compartiste.)</p>
 </div>
 <div class="hidden mb-8 mx-auto max-w-2xl rounded-lg py-3 px-4 font-body-sm text-body-sm border border-signal bg-surface-container-high text-ink" id="nota-presupuesto"></div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 gap-6" id="grid-planes"></div>
+<div class="paq-switch md:hidden" role="group" aria-label="Ver paquete"><button type="button" onclick="verPaquete(0,this)" class="on">Solo Internet</button><button type="button" onclick="verPaquete(1,this)">Internet + TV</button></div><div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 gap-6" id="grid-planes"></div>
 </section>
 <!-- Lead Form Section -->
 <section class="w-full hidden" id="lead-section">
@@ -1281,9 +1286,11 @@ show=function(lat,lng,source,recenter=true){
   out.append(box);
   formSC.classList.toggle('hidden', cfg[3]);
   evento(cfg[3]?'CoberturaPositiva':'CoberturaNegativa',{resultado:r.status,metodo:metodoCob,zona:estado.zona,colonia:col,distancia_m:Math.round(r.dist||0)});
-  if(recenter) out.scrollIntoView({behavior:'smooth',block:'nearest'});
+  if(recenter) out.scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
 };
 document.getElementById('start-wizard-btn').addEventListener('click',()=>setTimeout(resize,50));
-{const _ns=nextStep;let vio=false;nextStep=function(n){_ns(n);if(n===2){setTimeout(resize,50);if(!vio){vio=true;evento('VerCobertura',{})}}}}
+function verPaquete(i,b){const c=document.querySelectorAll('#grid-planes > div')[i];if(!c)return;document.querySelectorAll('.paq-switch button').forEach(x=>x.classList.toggle('on',x===b));const y=c.getBoundingClientRect().top+scrollY-140;scrollTo({top:y,behavior:'smooth'})}
+{const _mr=mostrarResultados;mostrarResultados=function(){_mr();document.body.scrollLeft=0;const i=estado.tieneTV?1:0;document.querySelectorAll('.paq-switch button').forEach((x,k)=>x.classList.toggle('on',k===i))}}
+{const _ns=nextStep;let vio=false;nextStep=function(n){_ns(n);document.body.scrollLeft=0;document.documentElement.scrollLeft=0;if(n===2){setTimeout(resize,50);if(!vio){vio=true;evento('VerCobertura',{})}}}}
 </script>
 </body></html>
