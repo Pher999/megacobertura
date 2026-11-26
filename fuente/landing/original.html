@@ -1,0 +1,942 @@
+<!DOCTYPE html><html class="dark" lang="es" style=""><head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '823622827257783');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=823622827257783&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MEGA CABLE - ¿Cuánto internet necesitas?</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400..800&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#efefff",
+                        "on-surface-variant": "#c4c5d9",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "on-background": "#dfe1f6",
+                        "on-primary": "#002388",
+                        "surface-bright": "#353948",
+                        "secondary-fixed-dim": "#0bdecc",
+                        "primary": "#b8c3ff",
+                        "line": "#1D2440",
+                        "surface-container": "#1b1f2e",
+                        "surface": "#0f1321",
+                        "surface-dim": "#0f1321",
+                        "on-secondary-container": "#005b53",
+                        "background": "#0f1321",
+                        "error-container": "#93000a",
+                        "paper": "#0A0E1C",
+                        "grid-line": "rgba(46,91,255,0.05)",
+                        "on-tertiary-fixed": "#380d00",
+                        "surface-container-highest": "#303444",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#dfe1f6",
+                        "outline": "#8e90a2",
+                        "outline-variant": "#434656",
+                        "primary-container": "#2e5bff",
+                        "signal-deep": "#2647CC",
+                        "surface-container-high": "#262939",
+                        "on-tertiary": "#5b1b00",
+                        "secondary-container": "#00dbc9",
+                        "on-tertiary-container": "#ffece6",
+                        "inverse-primary": "#124af0",
+                        "ink": "#F2F5FA",
+                        "secondary-fixed": "#4bfbe8",
+                        "on-secondary-fixed": "#00201d",
+                        "surface-container-low": "#171b29",
+                        "inverse-on-surface": "#2c303f",
+                        "surface-container-lowest": "#0a0e1b",
+                        "secondary": "#47f8e6",
+                        "tertiary": "#ffb59a",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-primary-fixed": "#001356",
+                        "primary-fixed": "#dde1ff",
+                        "on-secondary": "#003732",
+                        "on-tertiary-fixed-variant": "#812900",
+                        "on-secondary-fixed-variant": "#005049",
+                        "surface-variant": "#303444",
+                        "ink-soft": "#8B95AD",
+                        "on-primary-fixed-variant": "#0035be",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#b8c3ff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-surface": "#dfe1f6",
+                        "card": "#141A33",
+                        "tertiary-container": "#c14200",
+                        "signal": "#2e5bff",
+                        "signal-glow": "rgba(46,91,255,0.2)"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        gutter: "16px",
+                        "section-mobile": "48px",
+                        "container-max": "900px",
+                        "section-desktop": "64px",
+                        "margin-mobile": "24px",
+                        base: "4px"
+                    },
+                    fontFamily: {
+                        eyebrow: ["Manrope", "sans-serif"],
+                        "section-title": ["Sora", "sans-serif"],
+                        "hero-title": ["Sora", "sans-serif"],
+                        subheading: ["Manrope", "sans-serif"],
+                        label: ["Manrope", "sans-serif"],
+                        "hero-title-mobile": ["Sora", "sans-serif"],
+                        "body-lg": ["Manrope", "sans-serif"],
+                        "result-speed": ["Sora", "sans-serif"],
+                        "body-sm": ["Manrope", "sans-serif"]
+                    },
+                    fontSize: {
+                        eyebrow: ["12px", { lineHeight: "1.2", letterSpacing: "0.16em", fontWeight: "700" }],
+                        "section-title": ["36px", { lineHeight: "1.2", fontWeight: "800" }],
+                        "hero-title": ["76px", { lineHeight: "1.02", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        subheading: ["19px", { lineHeight: "1.55", fontWeight: "400" }],
+                        label: ["12px", { lineHeight: "1.2", fontWeight: "400" }],
+                        "hero-title-mobile": ["38px", { lineHeight: "1.1", fontWeight: "800" }],
+                        "body-lg": ["15px", { lineHeight: "1.5", fontWeight: "600" }],
+                        "result-speed": ["80px", { lineHeight: "1.0", fontWeight: "800" }],
+                        "body-sm": ["15px", { lineHeight: "1.5", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: var(--paper, #0A0E1C);
+            background-image: 
+                linear-gradient(to right, rgba(46,91,255,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(46,91,255,0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: var(--ink, #F2F5FA);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .glass-panel {
+            background: rgba(20, 26, 51, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--line, #1D2440);
+        }
+        .btn-primary {
+            background-color: var(--signal, #2e5bff);
+            color: var(--ink, #F2F5FA);
+            border: none;
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--signal-glow);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--line, #1D2440);
+            color: var(--ink, #F2F5FA);
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:hover, .btn-secondary.active {
+            border-color: var(--signal, #2e5bff);
+            background-color: rgba(46,91,255,0.1);
+            transform: translateY(-2px);
+        }
+        .step-container {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        .step-container.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        /* --- Respaldo si Tailwind (CDN externo) no carga ---
+           Sin esto, 'hidden' no existe y el visitante vería el hero, el
+           formulario y el resultado apilados al mismo tiempo. */
+        .hidden { display: none !important; }
+        nav img { height: 28px; width: auto; }
+        footer img { height: 32px; width: auto; }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 96px 20px 64px;
+            width: 100%;
+        }
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 50;
+            background: rgba(10,14,28,.85);
+            border-bottom: 1px solid #1D2440;
+        }
+        button { cursor: pointer; font-family: inherit; }
+        input, select { font-family: inherit; }
+        .glow-bg {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(46,91,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .card-result {
+            position: relative;
+            overflow: hidden;
+        }
+        .card-result::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(71,248,230,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .neon-text {
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #2e5bff,
+                0 0 40px #2e5bff,
+                0 0 80px #2e5bff;
+        }
+        .neon-text-primary {
+            color: var(--primary);
+            text-shadow: 
+                0 0 5px var(--primary),
+                0 0 10px var(--primary),
+                0 0 20px #2e5bff,
+                0 0 40px #2e5bff,
+                0 0 80px #2e5bff;
+        }
+    
+        @media (max-width: 768px) {
+            .glow-bg {
+                width: 300px;
+                height: 300px;
+            }
+        }
+        .activo-op {
+            border-color: #2BE8D6 !important;
+            background-color: rgba(43,232,214,0.12) !important;
+            color: #2BE8D6 !important;
+        }
+    </style>
+</head>
+<body class="bg-paper text-ink min-h-screen flex flex-col relative">
+<div class="glow-bg top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+<div class="glow-bg bottom-0 right-0 translate-x-1/3 translate-y-1/3" style="background: radial-gradient(circle, rgba(71,248,230,0.1) 0%, transparent 70%);"></div>
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-line bg-card/80 dark:bg-card/80 shadow-sm transition-all h-16 flex items-center px-gutter max-w-container-max mx-auto left-0 right-0 px-margin-mobile">
+<img alt="MEGA" class="h-7 w-auto" src="data:image/png;base64,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">
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-section-mobile md:pb-section-desktop px-margin-mobile md:px-0 max-w-container-max mx-auto w-full flex flex-col items-center relative z-10">
+<!-- Hero Section (Visible initially) -->
+<section class="w-full text-center mt-12 md:mt-24 mb-16 relative z-10 block" id="hero-section">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full glow-bg opacity-50" style="background: radial-gradient(circle, rgba(46,91,255,0.25) 0%, transparent 70%);"></div>
+<h1 class="font-hero-title-mobile text-hero-title-mobile md:font-hero-title md:text-hero-title mb-4 leading-tight font-extrabold text-ink">
+        ¿Cuánto internet <br><span class="" style="color: rgb(43, 232, 214); text-shadow: rgba(43, 232, 214, 0.4) 0px 0px 8px;">necesitas?</span>
+</h1>
+<p class="font-subheading text-subheading text-ink-soft max-w-2xl mx-auto mb-10">
+        Descúbrelo en 30 segundos.
+    </p>
+<button class="btn-primary rounded-lg px-8 py-4 font-body-lg text-body-lg flex items-center gap-2 mx-auto" id="start-wizard-btn" onclick="document.getElementById('hero-section').classList.add('hidden'); document.getElementById('wizard-section').classList.remove('hidden'); nextStep(1); window.scrollTo(0,0);">
+        Descubre tu velocidad ideal <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+<!-- Wizard Section -->
+<section class="w-full max-w-2xl mx-auto hidden" id="wizard-section">
+<!-- Progress Bar -->
+<div class="w-full h-1 bg-line rounded-full mb-8 relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-signal transition-all duration-300 w-1/4" id="progress-fill" style="width: 25%;"></div>
+<div class="absolute top-0 left-0 h-full w-full bg-signal opacity-50 blur-sm mix-blend-screen transition-all duration-300 w-1/4" style="transform: translateX(-50%);"></div>
+</div>
+<div class="glass-panel rounded-xl p-6 md:p-10 shadow-2xl relative p-4">
+<!-- Step 1: People & Devices -->
+<div class="step-container" id="step-1"><button class="flex items-center gap-1 text-ink-soft hover:text-primary mb-4 transition-colors font-body-sm" onclick="document.getElementById('wizard-section').classList.add('hidden'); document.getElementById('hero-section').classList.remove('hidden'); window.scrollTo(0,0);"><span class="material-symbols-outlined text-sm">arrow_back</span> Volver al inicio</button>
+<h2 class="font-section-title text-section-title mb-2 text-2xl">¿Cuántas personas se conectan simultáneamente?</h2>
+<p class="font-body-sm text-body-sm text-ink-soft mb-8">Elige la opción que mejor describa tu hogar.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+<button class="btn-secondary rounded-lg p-4 flex flex-col items-center gap-2" onclick="selectOption('step1', 'small')">
+<span class="material-symbols-outlined text-3xl mb-1">person</span>
+<span class="font-body-lg text-body-lg">1-2 Personas</span>
+<span class="font-label text-label text-ink-soft">Hasta 5 dispositivos</span>
+</button>
+<button class="btn-secondary rounded-lg p-4 flex flex-col items-center gap-2" onclick="selectOption('step1', 'medium')">
+<span class="material-symbols-outlined text-3xl mb-1">group</span>
+<span class="font-body-lg text-body-lg">3-4 Personas</span>
+<span class="font-label text-label text-ink-soft">6-10 dispositivos</span>
+</button>
+<button class="btn-secondary rounded-lg p-4 flex flex-col items-center gap-2" onclick="selectOption('step1', 'large')">
+<span class="material-symbols-outlined text-3xl mb-1">diversity_3</span>
+<span class="font-body-lg text-body-lg">5+ Personas</span>
+<span class="font-label text-label text-ink-soft">11-12 dispositivos, streaming 4K</span>
+</button>
+<button class="btn-secondary rounded-lg p-4 flex flex-col items-center gap-2 sm:col-span-2" onclick="selectOption('step1', 'xl')">
+<span class="material-symbols-outlined text-3xl mb-1">hub</span>
+<span class="font-body-lg text-body-lg">Hogar intensivo</span>
+<span class="font-label text-label text-ink-soft">13+ dispositivos, home office y gaming en paralelo</span>
+</button>
+</div>
+</div>
+<!-- Step 2: Coverage -->
+<div class="step-container" id="step-2">
+<h2 class="font-section-title text-section-title mb-2 text-2xl">Verificación de Cobertura</h2>
+<p class="font-body-sm text-body-sm text-ink-soft mb-8">Ingresa tu colonia o delegación para verificar disponibilidad de fibra óptica.</p>
+<div class="mb-8">
+<label class="block font-eyebrow text-eyebrow text-signal-deep mb-2">COLONIA / MUNICIPIO</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft">location_on</span>
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 pl-12 pr-4 text-ink focus:border-signal focus:ring-1 focus:ring-signal outline-none transition-all" id="input-colonia" list="lista-colonias" placeholder="Ej. Puerto Juárez, o 100" type="text" autocomplete="off">
+<datalist id="lista-colonias"></datalist>
+</div>
+</div>
+<div class="hidden mb-6 rounded-lg py-3 px-4 font-body-sm text-body-sm" id="msg-cobertura"></div>
+<div class="hidden mb-6" id="sin-cobertura-form">
+<p class="font-body-sm text-body-sm text-ink-soft mb-4">Déjanos tus datos y te avisamos en cuanto lleguemos a tu zona.</p>
+<div class="space-y-3">
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 px-4 text-ink focus:border-signal outline-none" id="sc-nombre" placeholder="Nombre" type="text">
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 px-4 text-ink focus:border-signal outline-none" id="sc-tel" placeholder="Teléfono / WhatsApp" type="tel">
+<button class="btn-secondary w-full rounded-lg py-3 font-body-lg text-body-lg" onclick="avisarCobertura()">Avísenme cuando llegue</button>
+</div>
+</div>
+<button class="btn-primary w-full rounded-lg py-3 font-body-lg text-body-lg" onclick="verificarCobertura()">Verificar cobertura</button>
+</div>
+<!-- Step 3: Current Situation -->
+<div class="step-container" id="step-3">
+<h2 class="font-section-title text-section-title mb-2 text-2xl">Situación Actual</h2>
+<p class="font-body-sm text-body-sm text-ink-soft mb-8" id="txt-paso3">Cuéntanos sobre tu servicio actual para calcular tus ahorros.</p>
+<div class="space-y-6 mb-8">
+<div>
+<label class="block font-eyebrow text-eyebrow text-signal-deep mb-2">PROVEEDOR ACTUAL</label>
+<select class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 px-4 text-ink focus:border-signal focus:ring-1 focus:ring-signal outline-none transition-all" id="provider-select" onchange="checkTelmex()">
+<option disabled="" selected="" value="">Selecciona tu proveedor</option>
+<option value="telmex">Telmex</option>
+<option value="izzi">Izzi</option>
+<option value="totalplay">Totalplay</option>
+<option value="otro">Otro</option>
+<option value="ninguno">No tengo internet contratado</option>
+</select>
+</div>
+<div id="campo-pago">
+<label class="block font-eyebrow text-eyebrow text-signal-deep mb-2">PAGO MENSUAL APROXIMADO ($)</label>
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 px-4 text-ink focus:border-signal focus:ring-1 focus:ring-signal outline-none transition-all" id="input-pago" placeholder="Ej. 600" type="number" min="0">
+</div>
+<div id="tv-question">
+<label class="block font-eyebrow text-eyebrow text-signal-deep mb-2">¿TU PLAN INCLUYE TV?</label>
+<div class="flex gap-4">
+<button class="flex-1 btn-secondary rounded-lg py-2" data-tv="si" onclick="toggleTv(true, this)">Sí</button>
+<button class="flex-1 btn-secondary rounded-lg py-2" data-tv="no" onclick="toggleTv(false, this)">No</button>
+</div>
+</div>
+<div id="campo-velocidad">
+<label class="block font-eyebrow text-eyebrow text-signal-deep mb-2">¿QUÉ VELOCIDAD TIENES HOY?</label>
+<div class="grid grid-cols-2 gap-3" id="grupo-velocidad">
+<button class="btn-secondary rounded-lg py-2 font-body-sm text-body-sm" data-vel="75" onclick="elegirVelocidad(75, this)">Menos de 100 MB</button>
+<button class="btn-secondary rounded-lg py-2 font-body-sm text-body-sm" data-vel="150" onclick="elegirVelocidad(150, this)">100 a 200 MB</button>
+<button class="btn-secondary rounded-lg py-2 font-body-sm text-body-sm" data-vel="350" onclick="elegirVelocidad(350, this)">200 a 500 MB</button>
+<button class="btn-secondary rounded-lg py-2 font-body-sm text-body-sm" data-vel="700" onclick="elegirVelocidad(700, this)">Más de 500 MB</button>
+<button class="btn-secondary rounded-lg py-2 font-body-sm text-body-sm col-span-2" data-vel="0" onclick="elegirVelocidad(0, this)">No lo sé</button>
+</div>
+</div>
+</div>
+<button class="btn-primary w-full rounded-lg py-3 font-body-lg text-body-lg" onclick="terminarPaso3()">Continuar</button>
+</div>
+<!-- Step 4: Budget -->
+<div class="step-container" id="step-4">
+<h2 class="font-section-title text-section-title mb-2 text-2xl">Presupuesto Ideal</h2>
+<p class="font-body-sm text-body-sm text-ink-soft mb-8">¿Cuánto te gustaría invertir mensualmente en tu conectividad?</p>
+<div class="flex flex-col gap-4 mb-8">
+<button class="btn-secondary rounded-lg p-4 flex justify-between items-center text-left" onclick="elegirPresupuesto(400)">
+<div>
+<span class="block font-body-lg text-body-lg">Básico &amp; Funcional</span>
+<span class="font-label text-label text-ink-soft">Hasta $400/mes</span>
+</div>
+<span class="material-symbols-outlined text-signal">chevron_right</span>
+</button>
+<button class="btn-secondary rounded-lg p-4 flex justify-between items-center text-left" onclick="elegirPresupuesto(600)">
+<div>
+<span class="block font-body-lg text-body-lg">Equilibrio Perfecto</span>
+<span class="font-label text-label text-ink-soft">Hasta $600/mes</span>
+</div>
+<span class="material-symbols-outlined text-signal">chevron_right</span>
+</button>
+<button class="btn-secondary rounded-lg p-4 flex justify-between items-center text-left" onclick="elegirPresupuesto(800)">
+<div>
+<span class="block font-body-lg text-body-lg">Máximo Rendimiento</span>
+<span class="font-label text-label text-ink-soft">Hasta $800/mes</span>
+</div>
+<span class="material-symbols-outlined text-signal">chevron_right</span>
+</button>
+<button class="btn-secondary rounded-lg p-4 flex justify-between items-center text-left" onclick="elegirPresupuesto(99999)">
+<div>
+<span class="block font-body-lg text-body-lg">Sin límite</span>
+<span class="font-label text-label text-ink-soft">Quiero lo mejor disponible</span>
+</div>
+<span class="material-symbols-outlined text-signal">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Results Section -->
+<section class="w-full hidden" id="results-section">
+<div class="text-center mb-8">
+<h2 class="font-section-title text-section-title mb-4">Tu Conexión Ideal</h2>
+<p class="font-subheading text-subheading text-secondary" id="res-subtitulo"></p>
+<p class="font-body-sm text-body-sm text-ink-soft max-w-2xl mx-auto mt-4 opacity-70" style="font-size:12px; line-height:1.5;">(Esta demostración se genera con los datos que tú mismo ingresaste; es una simulación ilustrativa. MEGA CABLE no hace ninguna afirmación sobre los precios, planes o condiciones de otros proveedores — la información de tu proveedor actual proviene únicamente de lo que tú compartiste.)</p>
+</div>
+<div class="hidden mb-8 mx-auto max-w-2xl rounded-lg py-3 px-4 font-body-sm text-body-sm border border-signal bg-surface-container-high text-ink" id="nota-presupuesto"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 gap-6" id="grid-planes"></div>
+</section>
+<!-- Lead Form Section -->
+<section class="w-full hidden" id="lead-section">
+<div class="glass-panel rounded-xl p-8 max-w-lg mx-auto border-t-4 border-t-signal p-6">
+<button class="flex items-center gap-1 text-ink-soft hover:text-primary mb-4 transition-colors font-body-sm" onclick="hideLeadForm()"><span class="material-symbols-outlined text-sm">arrow_back</span> Volver a resultados</button>
+<h2 class="font-section-title text-section-title text-center mb-2 text-2xl neon-text" style="color: rgb(43, 232, 214); text-shadow: rgba(43, 232, 214, 0.4) 0px 0px 8px;">Finaliza tu Solicitud</h2>
+<p class="font-body-sm text-body-sm text-ink-soft text-center mb-6">Estás a un paso de disfrutar la mejor conexión. Déjanos tus datos para agendar tu instalación.</p>
+<div class="font-body-sm text-body-sm text-ink text-center mb-8 bg-surface-container-high border border-line py-3 px-4 rounded-lg hidden" id="lead-summary"></div>
+<div class="space-y-4">
+<div>
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 px-4 text-ink focus:border-signal focus:ring-1 focus:ring-signal outline-none" id="lead-nombre" placeholder="Nombre completo" type="text">
+</div>
+<div>
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-lg py-3 px-4 text-ink focus:border-signal focus:ring-1 focus:ring-signal outline-none" id="lead-tel" placeholder="Teléfono / WhatsApp" type="tel">
+</div>
+<button class="btn-primary w-full rounded-lg py-3 font-body-lg text-body-lg flex justify-center items-center gap-2 mt-4" onclick="enviarWhatsapp()" type="button">
+<span class="material-symbols-outlined">send</span> Enviar por WhatsApp
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer from Shared Components -->
+<footer class="w-full py-section-desktop border-t border-line bg-surface-container-lowest dark:bg-surface-container-lowest mt-auto relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile max-w-container-max mx-auto">
+<div class="col-span-1 lg:col-span-2">
+<img alt="MEGA" class="h-8 w-auto mb-4" src="data:image/png;base64,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">
+<p class="font-body-sm text-body-sm text-ink-soft max-w-xs">© 2026 Megacable Holdings S.A. de C.V. Todos los derechos reservados.</p>
+</div>
+<div class="col-span-1 lg:col-span-2 flex flex-col md:flex-row gap-4 md:gap-8">
+<a class="font-body-sm text-body-sm text-ink-soft hover:text-ink transition-colors" href="https://mega.mx/aviso-de-privacidad" target="_blank" rel="noopener">Aviso de Privacidad</a>
+<a class="font-body-sm text-body-sm text-ink-soft hover:text-ink transition-colors" href="https://mega.mx/terminos-y-condiciones" target="_blank" rel="noopener">Términos y Condiciones</a>
+<a class="font-body-sm text-body-sm text-ink-soft hover:text-ink transition-colors" href="https://www.ift.org.mx/" target="_blank" rel="noopener">IFT</a>
+<a class="font-body-sm text-body-sm text-ink-soft hover:text-ink transition-colors" href="https://mega.mx/uploads/legales/1756225004665-a0bc0ns7n3l.pdf" target="_blank" rel="noopener">Contratos de Adhesión</a>
+</div>
+</div>
+</footer>
+<script>
+// ============ CATÁLOGO ============
+const PLANES_DOBLE = [
+  {mb:200, precio:350, label:"200"},
+  {mb:300, precio:450, label:"300"},
+  {mb:500, precio:650, label:"500"},
+  {mb:1000, precio:800, label:"1 GIGA"}
+];
+const PLANES_TRIPLE = [
+  {mb:200, precio:500, label:"200"},
+  {mb:300, precio:600, label:"300"},
+  {mb:500, precio:800, label:"500"},
+  {mb:1000, precio:1000, label:"1 GIGA"}
+];
+
+const NUMERO_VENTAS = "529904011439";
+
+const COBERTURA_SM = [21,48,50,51,63,64,77,93,95,96,99,100,101,103,216,221,227,228,231,233,234,235,236,237,239,94,75,102,91,92,68,76,230,232,90,219,229,220,67,240,222,73,97,59,516,72,66,58,65,41,62,223,238,60,71,45,43,61,70,74,225,89,210,226,46,38,209,98,104,503,215,500,55,56,57,512,518];
+
+const COBERTURA_COLONIAS = [
+  "REGION 105 - TIERRA MAYA","VILLAS DEL MAR","REGION 227 - VILLAS OTOCH","PARAISO MAYA",
+  "PASEOS KABAH","VILLAS OTOCH","ZONA URBANA ISLA MUJERES","REGION 520 - VILLAS DEL CARIBE",
+  "CASAS DEL MAR","REGION 514 - PASEOS DEL CARIBE","AZUL BONAMPAK","REGION 517 - BARRIO MAYA",
+  "DONCELES","LOMBARDO TOLEDANO","EL SOL","ISLAS CANCUN II","NORA QUINTANA",
+  "GALAXIA CANCUN LA GUADALUPANA","CECILIO CHI","CALAKMUL","REGION 515 - LEONARDO RODRIGUEZ",
+  "KULKANA","SUPMZA 55 - PORTO BELLO","ALAMOS","SAC-BE","ANDALUCIA 2A ETAPA","JACINTO PAT",
+  "BETHEL","UCASTU","LOS CORALES PLUS","SAN ANTONIO II","VILLAS CANCUN","RIVIERA",
+  "LOS ALMENDROS","PORTO ALEGRE","REGION 524 - SANTA FE","GALAXIA ITZALES","GASTRONOMICOS",
+  "LOS GARCIA","GALAXIA CANCUN","REGION 507 - EK BALAM","CALIFORNIA",
+  "REGION 513 - BOSQUES SAN MIGUEL","TIERRA Y LIBERTAD","REGION 95 - ARBOLEDAS","TUMBEN CUXTAL",
+  "CARIBE 1 (LA CASCADA)","LA GUADALUPANA CANADA III","LA FLORIDA","ANGELES","EL PETEN",
+  "QUETZAL","LA LUNA","LOS ALMENDROS 2","FRACCIONAMIENTO QUETZALES","BONAMPAK","MONTECARLO",
+  "DON BARTOLOME","FRAMBOYANES","LA GUADALUPANA CARIBE 3","FRACC LA SELVA","PRIVADAS LA JOYA",
+  "LA GUADALUPANA","PEHALTUN","ENRIQUE RANGEL MELENDEZ","REGION 504 - CHEMUYIL",
+  "REGION 506 - EL PEDREGAL","REAL DEL BOSQUE","SAN ANTONIO","BENITO JUAREZ",
+  "TORRES DEL BOSQUE II","HACIENDA","AKIMPECH","TERRA NOVA","LAJAS","FOVISSSTE","TABACHINES",
+  "GALAXIA LAS TORRES","BUGAMBILIAS","BRIGSA","LOS ANGELES","CAMPESTRE LOL-BE","LOS PERALTA",
+  "GUADALUPANA BRISAS","CANACO NICTE-HA","RINCONADA BALAM KU","EL JORDAN","NUEVA ESPERANZA",
+  "INVASION LA JUNGLA","VILLAS DEL SOL","PRIMAVERA","RESIDENCIAL CAMPESTRE","LOMAS VIRREYES",
+  "ISLA MUJERES","TRES HERMANOS 1","LA SELVA","HOPNA","MONTEALBAN","TORRES DEL BOSQUE",
+  "PUESTA DEL SOL","AGUA AZUL","LAS ALAMEDAS","GUERRERO","GALAXIA ISLA PLUS","CHAN CENOTE",
+  "SAN ALFREDO","SUPMZA 56 - SOL DEL MAYAB","CARIBE II","LAJAS 2A ETAPA","NUEVO PEDREGAL",
+  "EL FORESTAL","LA CANTERA","EL PETEN COSTA AZUL","EL ROBLE","LA ESMERALDA","IZAMAL",
+  "SAN JOSE BONAMPAK","EL PEDREGAL","ORINOCO SOL","NUEVO AMANECER","SANTA ANA","9 HERMANOS",
+  "ASTURIAS","LA GUADALUPANA - CANADA","LA MORENA","SUPMZA 57 - LAS AMERICAS",
+  "NICHUPTE - SUPMZA 512","MARIO VILLANUEVA","PUERTO JUAREZ","CORNER CENTER","PRIVADAS BALAM",
+  "PARAISO VILLAS","INVASION LAURELES","COLONIA EL ESFUERZO","PRIVANZA LA LOMA II",
+  "MONTE DE LOS OLIVOS","RINCON SANTA MARIA","IN-NAH","H LIVING","JARDINES DE BONAMPAK",
+  "SANTA LUCIA","TULIPANES","IZAMAL RESIDENCIAL","QUINTAS DEL SOL","CARIBE 2","ISLAS",
+  "CARDENAS","CANTABRIA","BONAMPAK 2000","COLONIA DEL BOSQUE","EL SHERIFF","PRIVADA URANO",
+  "CUMBRES","EL PETEN MISOLHA","PAMICA","LIRIO DE LOS VALLES","UN NUEVO HORIZONTE",
+  "LOS TUCANES","EL TALISMAN","REGION 500 - ARBOLEDAS","BOSQUES NOHOL","LOMA BONITA",
+  "UNIDAD NAVAL MILITAR","PRIVADA AMAZONAS ORINOCO","CHUJUM","JERANIO","PRIVADA LOS HEROES IX",
+  "LOS PINOS","FUENTES DE LA FLORIDA","PRIVADA MAR DE LAPTIEN","LA ESPERANZA",
+  "VISTA HERMOSA - SUPMZA 518","LOS COLORINES","PALMA REAL","DELFINES","PRIVADA SATURNO",
+  "PARAISO","PARAISO DIVINO - FRACCIONAMIENTO PARAISO MAYA","SALEM","SOL CAMPESTRE",
+  "SRSINAI","BAHIA REAL"
+];
+
+
+// ============ ESTADO ============
+const estado = {
+  perfil:null,        // small | medium | large | xl
+  zona:null,
+  conCobertura:null,
+  compania:null,
+  sinProveedor:false,
+  pagoActual:null,
+  tieneTV:null,
+  velocidadActual:null, // 0 = no lo sé
+  presupuesto:null,
+  planDoble:null,
+  planTriple:null,
+  paqueteElegido:null
+};
+
+const num = n => Math.round(n).toLocaleString("es-MX");
+const pesos = n => "$" + num(n);
+
+function evento(nombre, params){
+  if (typeof fbq === 'function') fbq('track', nombre, params || {});
+}
+
+// ============ COBERTURA ============
+function normaliza(str){
+  return String(str||"").normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().trim();
+}
+
+function verificarCobertura(){
+  const valor = document.getElementById('input-colonia').value.trim();
+  const msg = document.getElementById('msg-cobertura');
+  const formSC = document.getElementById('sin-cobertura-form');
+
+  if(!valor){
+    alert('Escribe tu colonia o número de supermanzana.');
+    return;
+  }
+
+  const comoNumero = parseInt(valor);
+  const esNumero = !isNaN(comoNumero) && String(comoNumero) === valor;
+  const norm = normaliza(valor);
+  const cubierto = esNumero
+    ? COBERTURA_SM.includes(comoNumero)
+    : COBERTURA_COLONIAS.some(c => normaliza(c) === norm);
+
+  estado.zona = valor;
+  estado.conCobertura = cubierto;
+  msg.classList.remove('hidden');
+
+  if(cubierto){
+    msg.className = 'mb-6 rounded-lg py-3 px-4 font-body-lg text-body-lg border border-signal bg-surface-container-high text-primary';
+    msg.textContent = '¡Buenas noticias! Sí tenemos cobertura en "' + valor + '".';
+    formSC.classList.add('hidden');
+    evento('CoberturaPositiva', { zona: valor, tipo_busqueda: esNumero ? 'sm' : 'colonia' });
+    setTimeout(() => nextStep(3), 700);
+  } else {
+    msg.className = 'mb-6 rounded-lg py-3 px-4 font-body-sm text-body-sm border border-error bg-surface-container-high text-error';
+    msg.textContent = 'Por ahora no llegamos a "' + valor + '", pero queremos avisarte en cuanto lo hagamos.';
+    formSC.classList.remove('hidden');
+    evento('CoberturaNegativa', { zona: valor, tipo_busqueda: esNumero ? 'sm' : 'colonia' });
+  }
+}
+
+function avisarCobertura(){
+  const nombre = document.getElementById('sc-nombre').value.trim();
+  const tel = document.getElementById('sc-tel').value.trim();
+  if(!nombre || !tel){
+    alert('Necesitamos tu nombre y teléfono para poder avisarte.');
+    return;
+  }
+  const mensaje = 'Hola, quiero que me avisen cuando haya cobertura de MEGA CABLE%0A%0A' +
+    '*Colonia/SM:* ' + encodeURIComponent(estado.zona) + '%0A' +
+    '*Nombre:* ' + encodeURIComponent(nombre) + '%0A' +
+    '*Teléfono:* ' + encodeURIComponent(tel);
+  window.open('https://wa.me/' + NUMERO_VENTAS + '?text=' + mensaje, '_blank');
+}
+
+// ============ NAVEGACIÓN ============
+function selectOption(step, value){
+  if(step === 'step1'){
+    estado.perfil = value;
+    evento('IniciaDiagnostico', { perfil: value });
+    nextStep(2);
+  }
+}
+
+function nextStep(stepNumber){
+  document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
+  const stepEl = document.getElementById('step-' + stepNumber);
+  if(stepEl) stepEl.classList.add('active');
+  document.getElementById('progress-fill').style.width = ((stepNumber / 4) * 100) + '%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function checkTelmex(){
+  const proveedor = document.getElementById('provider-select').value;
+  estado.compania = proveedor;
+  const tvQ = document.getElementById('tv-question');
+  const campoPago = document.getElementById('campo-pago');
+  const campoVel = document.getElementById('campo-velocidad');
+  const txt = document.getElementById('txt-paso3');
+
+  if(proveedor === 'ninguno'){
+    // Sin servicio contratado no hay nada que comparar: se ocultan las
+    // preguntas que solo existen para calcular el ahorro.
+    estado.sinProveedor = true;
+    estado.pagoActual = null;
+    estado.tieneTV = false;
+    estado.velocidadActual = 0;
+    campoPago.style.display = 'none';
+    campoVel.style.display = 'none';
+    tvQ.style.display = 'none';
+    txt.textContent = 'Perfecto, empezamos desde cero. Solo falta un paso más.';
+    return;
+  }
+
+  estado.sinProveedor = false;
+  campoPago.style.display = '';
+  campoVel.style.display = '';
+  txt.textContent = 'Cuéntanos sobre tu servicio actual para calcular tus ahorros.';
+
+  if(proveedor === 'telmex'){
+    // Telmex nunca incluye TV: la pregunta se responde sola y se oculta.
+    estado.tieneTV = false;
+    tvQ.style.display = 'none';
+  } else {
+    tvQ.style.display = '';
+    estado.tieneTV = null;
+    document.querySelectorAll('[data-tv]').forEach(b => b.classList.remove('activo-op'));
+  }
+}
+
+function toggleTv(val, btn){
+  estado.tieneTV = val;
+  document.querySelectorAll('[data-tv]').forEach(b => b.classList.remove('activo-op'));
+  if(btn) btn.classList.add('activo-op');
+}
+
+function elegirVelocidad(mb, btn){
+  estado.velocidadActual = mb;
+  document.querySelectorAll('[data-vel]').forEach(b => b.classList.remove('activo-op'));
+  if(btn) btn.classList.add('activo-op');
+}
+
+function terminarPaso3(){
+  if(!estado.compania){ alert('Selecciona tu proveedor actual.'); return; }
+
+  if(estado.sinProveedor){
+    evento('InitiateCheckout', { value: 0, currency: 'MXN', compania_actual: 'ninguno' });
+    nextStep(4);
+    return;
+  }
+
+  const pago = parseFloat(document.getElementById('input-pago').value);
+  if(isNaN(pago) || pago <= 0){ alert('Escribe cuánto pagas al mes.'); return; }
+  if(estado.tieneTV === null){ alert('Dinos si tu plan incluye TV.'); return; }
+  if(estado.velocidadActual === null){ alert('Elige tu velocidad actual, o toca "No lo sé".'); return; }
+
+  estado.pagoActual = pago;
+  evento('InitiateCheckout', {
+    value: pago,
+    currency: 'MXN',
+    compania_actual: estado.compania
+  });
+  nextStep(4);
+}
+
+// ============ CÁLCULO ============
+function indiceIdeal(){
+  switch(estado.perfil){
+    case 'small':  return 0; // 200
+    case 'medium': return 1; // 300
+    case 'large':  return 2; // 500
+    case 'xl':     return 3; // 1 Giga
+    default:       return 0;
+  }
+}
+
+// Devuelve el plan más alto que cabe en el presupuesto, sin pasar del ideal.
+function planPara(planes, idxIdeal){
+  const disponibles = planes.filter(p => p.precio <= estado.presupuesto);
+  if(!disponibles.length) return { plan: planes[0], limitado: true, alcanzaMas: null };
+  const idxReal = Math.min(idxIdeal, disponibles.length - 1);
+  const plan = disponibles[idxReal];
+  // El presupuesto nunca sube la recomendación, pero sí se avisa si alcanza más.
+  const mayor = disponibles.length - 1 > idxReal ? disponibles[disponibles.length - 1] : null;
+  return { plan, limitado: idxReal < idxIdeal, alcanzaMas: mayor };
+}
+
+function elegirPresupuesto(monto){
+  estado.presupuesto = monto;
+  const idx = indiceIdeal();
+  estado.planDoble  = planPara(PLANES_DOBLE, idx);
+  estado.planTriple = planPara(PLANES_TRIPLE, idx);
+  mostrarResultados();
+}
+
+// ============ RESULTADOS ============
+function tarjetaPlan(tipo, info){
+  const esTriple = tipo === 'triple';
+  const plan = info.plan;
+  const recomendado = (estado.tieneTV === true) === esTriple;
+  const ahorroMes = estado.pagoActual - plan.precio;
+  const ahorroAnual = ahorroMes * 12;
+
+  let encuadre;
+  if(estado.sinProveedor){
+    encuadre = esTriple
+      ? 'Internet, telefonía y TV interactiva'
+      : 'Internet y telefonía';
+  } else if(esTriple){
+    encuadre = estado.tieneTV
+      ? 'Comparación equivalente — tu plan actual también incluye TV'
+      : 'Además de internet, súmale TV interactiva';
+  } else {
+    encuadre = estado.tieneTV
+      ? 'Más barato, pero sin televisión'
+      : 'Comparación equivalente';
+  }
+
+  const beneficios = esTriple
+    ? ['Fibra óptica simétrica','Xview+ con más de 80 canales','Acceso a apps de streaming','Telefonía ilimitada']
+    : ['Fibra óptica simétrica','Módem Dual Band incluido','Telefonía ilimitada'];
+  if(plan.mb >= 500) beneficios.push('Extensor de wifi sin costo');
+  if(plan.mb >= 1000) beneficios[0] = 'Fibra óptica de máxima velocidad';
+
+  const listaHTML = beneficios.map(b =>
+    '<li class="flex items-center gap-3">' +
+    '<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>' +
+    '<span class="font-body-sm text-body-sm text-on-surface-variant">' + b + '</span></li>'
+  ).join('');
+
+  // Si el plan cuesta más de lo que paga hoy, se enmarca como lo que gana.
+  // El precio y el ahorro son lo que la persona vino a ver: van en grande,
+  // no como nota al pie.
+  const bloquePrecio =
+    '<div class="flex items-baseline gap-2 mb-4">' +
+      '<span class="text-5xl font-extrabold text-ink leading-none">' + pesos(plan.precio) + '</span>' +
+      '<span class="font-body-lg text-body-lg text-ink-soft">/mes</span>' +
+    '</div>';
+
+  let bloqueAhorro;
+  if(estado.sinProveedor){
+    // No hay plan previo con qué comparar: se destaca lo que incluye.
+    bloqueAhorro = bloquePrecio +
+      '<div class="rounded-xl px-5 py-4" style="background:rgba(43,232,214,.12); border:1px solid rgba(43,232,214,.45)">' +
+        '<div class="font-eyebrow text-eyebrow text-secondary uppercase mb-1">Todo incluido</div>' +
+        '<div class="text-2xl font-extrabold text-secondary leading-none mb-2">Sin costo de instalación</div>' +
+        '<div class="font-body-sm text-body-sm text-on-surface-variant">Precio final al mes, sin cargos ocultos</div>' +
+      '</div>';
+  } else if(ahorroMes > 0){
+    bloqueAhorro = bloquePrecio +
+      '<div class="rounded-xl px-5 py-4" style="background:rgba(43,232,214,.12); border:1px solid rgba(43,232,214,.45)">' +
+        '<div class="font-eyebrow text-eyebrow text-secondary uppercase mb-1">Ahorras al año</div>' +
+        '<div class="text-4xl font-extrabold text-secondary leading-none mb-2">' + pesos(ahorroAnual) + '</div>' +
+        '<div class="font-body-sm text-body-sm text-on-surface-variant">' +
+          pesos(ahorroMes) + ' menos cada mes que los ' + pesos(estado.pagoActual) + ' que pagas hoy' +
+        '</div>' +
+      '</div>';
+  } else {
+    const extra = Math.abs(ahorroMes);
+    const titulo = extra === 0 ? 'Mismo precio' : 'La diferencia';
+    const cifra  = extra === 0 ? 'Sin cambio' : '+' + pesos(extra);
+    const detalle = extra === 0
+      ? 'Pagas lo mismo que hoy, con mejor servicio'
+      : 'más al mes' + (esTriple ? ' por sumar TV interactiva con Android TV' : ' que tu plan actual');
+    bloqueAhorro = bloquePrecio +
+      '<div class="rounded-xl px-5 py-4" style="background:rgba(184,195,255,.10); border:1px solid rgba(184,195,255,.4)">' +
+        '<div class="font-eyebrow text-eyebrow text-primary uppercase mb-1">' + titulo + '</div>' +
+        '<div class="text-4xl font-extrabold text-primary leading-none mb-2">' + cifra + '</div>' +
+        '<div class="font-body-sm text-body-sm text-on-surface-variant">' + detalle + '</div>' +
+      '</div>';
+  }
+
+  let notas = '';
+  if(info.limitado){
+    const planes = esTriple ? PLANES_TRIPLE : PLANES_DOBLE;
+    const ideal = planes[indiceIdeal()];
+    notas += '<p class="font-label text-label text-ink-soft mt-3">Con ' + pesos(ideal.precio - plan.precio) +
+             ' más al mes subes a ' + ideal.label + ' MB.</p>';
+  }
+  if(!estado.sinProveedor && estado.velocidadActual > 0 && plan.mb > estado.velocidadActual){
+    notas += '<p class="font-label text-label text-secondary mt-2">Pasas de unos ' + estado.velocidadActual +
+             ' MB a ' + plan.label + ' MB.</p>';
+  }
+
+  const idBoton = 'btn-plan-' + tipo;
+  return '<div class="glass-panel rounded-xl p-8 card-result flex flex-col z-10 relative' +
+      (recomendado ? ' border-signal' : '') + '"' + (recomendado ? ' style="border-width:2px"' : '') + '>' +
+    (recomendado ? '<div class="absolute top-0 right-0 bg-signal text-ink px-4 py-1 rounded-bl-lg font-eyebrow text-eyebrow">RECOMENDADO</div>' : '') +
+    '<div class="font-eyebrow text-eyebrow ' + (esTriple ? 'text-secondary' : 'text-signal-deep') + ' mb-2 uppercase">' +
+      (esTriple ? 'Entretenimiento total' : 'Opción esencial') + '</div>' +
+    '<h3 class="font-hero-title-mobile text-hero-title-mobile mb-1 text-2xl">' +
+      (esTriple ? 'Internet + Xview+' : 'Solo Internet') + '</h3>' +
+    '<div class="font-result-speed text-result-speed text-primary mb-2 leading-none text-6xl">' + plan.label +
+      (plan.mb >= 1000 ? '' : '<span class="text-3xl ml-1 text-ink-soft">MB</span>') + '</div>' +
+    '<p class="font-label text-label text-ink-soft mb-4">' + encuadre + '</p>' +
+    '<ul class="space-y-3 mb-8 flex-grow">' + listaHTML + '</ul>' +
+    '<div class="border-t border-line pt-5 mb-6">' + bloqueAhorro + notas + '</div>' +
+    '<button class="' + (recomendado ? 'btn-primary' : 'btn-secondary') +
+      ' w-full rounded-lg py-3 font-body-lg text-body-lg" id="' + idBoton +
+      '" onclick="showLeadForm(&quot;' + tipo + '&quot;)">' +
+      (recomendado ? 'Solicitar ahora' : 'Me interesa esta opción') + '</button>' +
+  '</div>';
+}
+
+function mostrarResultados(){
+  document.getElementById('wizard-section').classList.add('hidden');
+  document.getElementById('hero-section').classList.add('hidden');
+  document.getElementById('results-section').classList.remove('hidden');
+
+  const preseleccion = estado.tieneTV ? 'triple' : 'doble';
+  const infoPre = preseleccion === 'triple' ? estado.planTriple : estado.planDoble;
+
+  document.getElementById('res-subtitulo').textContent = estado.sinProveedor
+    ? 'Basado en tu hogar, esta es la velocidad con la que deberías empezar.'
+    : 'Basado en tu hogar, esta es la velocidad que necesitas — ni de más, ni de menos.';
+
+  document.getElementById('grid-planes').innerHTML =
+    tarjetaPlan('doble', estado.planDoble) + tarjetaPlan('triple', estado.planTriple);
+
+  // Nota de "tu presupuesto alcanza para más", calculada por paquete.
+  const nota = document.getElementById('nota-presupuesto');
+  const mayor = infoPre.alcanzaMas;
+  if(mayor){
+    nota.textContent = 'Con tu presupuesto también alcanzas ' + mayor.label + ' MB por ' +
+      pesos(mayor.precio) + ' al mes, si quieres ir por más velocidad.';
+    nota.classList.remove('hidden');
+  } else {
+    nota.classList.add('hidden');
+  }
+
+  evento('Lead', {
+    plan_mb: infoPre.plan.mb,
+    tipo_paquete: preseleccion,
+    value: infoPre.plan.precio,
+    currency: 'MXN'
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============ FORMULARIO Y WHATSAPP ============
+function showLeadForm(tipo){
+  estado.paqueteElegido = tipo;
+  const info = tipo === 'triple' ? estado.planTriple : estado.planDoble;
+  const plan = info.plan;
+  const nombrePaquete = tipo === 'triple' ? 'Internet + Xview+' : 'Solo Internet';
+
+  document.getElementById('hero-section').classList.add('hidden');
+  document.getElementById('wizard-section').classList.add('hidden');
+  document.getElementById('results-section').classList.add('hidden');
+
+  const resumen = document.getElementById('lead-summary');
+  if(resumen){
+    resumen.innerHTML = 'Has seleccionado: <span class="font-bold text-primary">' + nombrePaquete + ' ' +
+      plan.label + ' MB</span> — <span class="text-secondary">' + pesos(plan.precio) + '/mes</span>';
+    resumen.classList.remove('hidden');
+  }
+
+  document.getElementById('lead-section').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function hideLeadForm(){
+  document.getElementById('lead-section').classList.add('hidden');
+  document.getElementById('results-section').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function enviarWhatsapp(){
+  const nombre = document.getElementById('lead-nombre').value.trim();
+  const tel = document.getElementById('lead-tel').value.trim();
+  if(!nombre || !tel){
+    alert('Por favor completa tu nombre y teléfono para que podamos contactarte.');
+    return;
+  }
+
+  const tipo = estado.paqueteElegido || 'doble';
+  const info = tipo === 'triple' ? estado.planTriple : estado.planDoble;
+  const plan = info.plan;
+  const nombrePaquete = tipo === 'triple' ? 'Internet + Xview+' : 'Solo Internet';
+  const ahorroMes = estado.pagoActual - plan.precio;
+
+  evento('Contact', {
+    plan_mb: plan.mb,
+    tipo_paquete: tipo,
+    value: plan.precio,
+    currency: 'MXN'
+  });
+
+  // Todo lo que escribe el cliente se codifica: una dirección con # o &
+  // rompería la URL y el mensaje llegaría cortado.
+  let mensaje = 'Hola, quiero contratar MEGA CABLE%0A%0A' +
+    '*Plan:* ' + encodeURIComponent(nombrePaquete + ' ' + plan.label + ' MB') + '%0A' +
+    '*Precio:* ' + encodeURIComponent(pesos(plan.precio) + '/mes') + '%0A' +
+    '*Nombre:* ' + encodeURIComponent(nombre) + '%0A' +
+    '*Teléfono:* ' + encodeURIComponent(tel) + '%0A' +
+    '*Colonia/SM:* ' + encodeURIComponent(estado.zona || 'no indicada') + '%0A' +
+    '*Hoy paga:* ' + encodeURIComponent(estado.sinProveedor
+      ? 'no tiene internet contratado'
+      : pesos(estado.pagoActual) + ' con ' + (estado.compania || 'otro'));
+  if(!estado.sinProveedor && ahorroMes > 0){
+    mensaje += '%0A*Ahorro estimado:* ' + encodeURIComponent(pesos(ahorroMes * 12) + ' al año');
+  }
+
+  window.open('https://wa.me/' + NUMERO_VENTAS + '?text=' + mensaje, '_blank');
+}
+
+// ============ ARRANQUE ============
+document.addEventListener('DOMContentLoaded', function(){
+  const dl = document.getElementById('lista-colonias');
+  if(dl) dl.innerHTML = COBERTURA_COLONIAS.map(c => '<option value="' + c + '">').join('');
+});
+
+</script>
+</body></html>
